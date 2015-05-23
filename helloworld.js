@@ -9,10 +9,9 @@ function handle_request(req, res){
     console.time("request");
     var ip_info = get_ip(req);
     console.log("Got a request");
-    res.setHeader("Content-Type", "text/html");
+    res.setHeader("Content-Type", "text/html; charset=utf-8");
     var client_ip = ip_info['clientIp'];
-    res.write(client_ip);
-    res.write("\n\n");
+    res.write("<h1>" + client_ip + "</h1>\n");
     res.write(req.headers['user-agent']);
     res.end();
     console.timeEnd("request");
