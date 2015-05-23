@@ -13,6 +13,7 @@ function handle_request(req, res){
     var client_ip = ip_info['clientIp'];
     res.write("<h1>" + client_ip + "</h1>\n");
     res.write(req.headers['user-agent']);
+    console.log(req.headers);
     res.end();
     console.timeEnd("request");
 }
