@@ -24,8 +24,10 @@ var server = http.createServer(function (req,res){
         console.log(e); 
     }
 });
+server.listen(http_port,"localhost");
 
-server.listen(http_port);
-var address = server.address();
-console.log("Running on",os.hostname());
-console.log("now listening on ip",address.address,"port", address.port,"family:",address.family);
+setTimeout(function () { 
+    var address = server.address();
+    console.log("Running on",os.hostname());
+    console.log("now listening on ip",address.address,"port", address.port,"family:",address.family);
+},1000);
