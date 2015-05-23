@@ -14,5 +14,6 @@ var server = http.createServer(function(req, res) {
 });
 
 server.listen(http_port);
+var address = server.address();
 console.log("Running on",os.hostname());
-console.log("now listening on port", http_port);
+console.log("now listening on ip",address.address,"port", address.port,"family:",address.family);
