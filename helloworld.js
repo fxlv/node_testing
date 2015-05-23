@@ -4,7 +4,8 @@ var get_ip = require('ipware')().get_ip;
 
 var http_port = 3000;
 
-var server = http.createServer(function(req, res) {
+
+function handle_request(req, res){
     console.time("request");
     var ip_info = get_ip(req);
     console.log("Got a request");
@@ -13,6 +14,9 @@ var server = http.createServer(function(req, res) {
     res.write(req.headers['user-agent']);
     res.end();
     console.timeEnd("request");
+}
+var server = http.createServer(function (req,res){ 
+    handle_request(req,res);
 });
 
 server.listen(http_port);
