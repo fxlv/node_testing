@@ -9,14 +9,21 @@ function handle_request(req, res){
     console.time("request");
     var ip_info = get_ip(req);
     console.log("Got a request");
-    res.write(ip_info['clientIp']);
+    res.setHeader("Content-Type", "text/html");
+    var client_ip = ip_info['clientIp'];
+    res.write(client_ip);
     res.write("\n\n");
     res.write(req.headers['user-agent']);
     res.end();
     console.timeEnd("request");
 }
 var server = http.createServer(function (req,res){ 
-    handle_request(req,res);
+    try { 
+        handle_request(req,res); 
+    } catch(e) { 
+        console.log("Error happened");
+        console.log(e); 
+    }
 });
 
 server.listen(http_port);
