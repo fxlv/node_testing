@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>Wazaaaaap</title>
+		<script type="text/javascript" src="http://yotta.tln/js/jquery.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".this").html("Whoa, this got changed by javascript");
+				$("#hide").click(function(){
+					$(".this").hide();
+				});
+				$("#show").click(function(){
+					$(".this").show();
+				});
+			});
+			
+		</script>
+	</head>
+	<body>
+		<div class="hey"><p>Hey, this is funky.</p></div>
+		<div class="this"><p>And so is this.</p></div>
+		<button id="hide">Hide</button>
+		<button id="show">Show</button>
+		<input type="text" value="Input your stuff here">
+	</body>
+</html>
